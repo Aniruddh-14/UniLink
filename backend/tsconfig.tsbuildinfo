@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/managers/roommanager.ts","./src/managers/usermanger.ts"],"version":"5.9.3"}
+{"root":["./src/index.ts","./src/config/database.ts","./src/config/logger.ts","./src/config/webrtc.ts","./src/managers/roommanager.ts","./src/managers/usermanger.ts","./src/models/emailverification.ts","./src/models/room.ts","./src/models/user.ts","./src/routes/auth.ts","./src/services/emailservice.ts","./src/utils/emailvalidator.ts","./src/utils/otpgenerator.ts"],"version":"5.9.3"}

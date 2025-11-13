@@ -1,0 +1,128 @@
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-10 09:28:55"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-10 09:28:55"}
+{"level":"warn","message":"Database not available, using in-memory user","service":"omegle-backend","timestamp":"2025-11-10 09:29:36"}
+{"level":"info","message":"User verified for soham.saranga@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-10 09:29:36"}
+{"level":"warn","message":"Database not available, using in-memory user","service":"omegle-backend","timestamp":"2025-11-10 09:29:57"}
+{"level":"info","message":"User verified for soham.saranga@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-10 09:29:57"}
+{"level":"warn","message":"Database not available, using in-memory user","service":"omegle-backend","timestamp":"2025-11-10 09:30:10"}
+{"level":"info","message":"User verified for soham.saranga@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-10 09:30:10"}
+{"level":"warn","message":"Database not available, using in-memory user","service":"omegle-backend","timestamp":"2025-11-10 09:30:35"}
+{"level":"info","message":"User verified for test@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-10 09:30:35"}
+{"level":"info","message":"SIGTERM signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-10 09:30:56"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-10 09:30:59"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-10 09:30:59"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-10 13:56:54"}
+{"level":"info","message":"User verified for soham@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-10 13:56:54"}
+{"level":"info","message":"User connected: ZKACXdt_zyuDpeCtAAAB","service":"omegle-backend","timestamp":"2025-11-10 13:56:56"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 02:32:52"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 02:32:52"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 02:33:05"}
+{"level":"info","message":"User verified for Soham@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 02:33:05"}
+{"level":"info","message":"User connected: MXtFRk3ttJ6TWbl1AAAB","service":"omegle-backend","timestamp":"2025-11-12 02:33:07"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 02:37:39"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 02:37:39"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 02:37:41"}
+{"level":"info","message":"User verified for soham@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 02:37:41"}
+{"level":"info","message":"User connected: P6TN6hHPE4DvbBaiAAAB","service":"omegle-backend","timestamp":"2025-11-12 02:37:43"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 02:37:53"}
+{"level":"info","message":"User verified for soham@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 02:37:53"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 02:41:44"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 02:41:44"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 02:41:48"}
+{"level":"info","message":"User verified for sohamc@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 02:41:48"}
+{"level":"info","message":"User connected: VVGMlKadWIk_vUMgAAAB","service":"omegle-backend","timestamp":"2025-11-12 02:41:49"}
+{"level":"info","message":"User connected: _rbYLMjQP1ZuutAkAAAD","service":"omegle-backend","timestamp":"2025-11-12 02:41:49"}
+{"level":"info","message":"User disconnected: _rbYLMjQP1ZuutAkAAAD","service":"omegle-backend","timestamp":"2025-11-12 02:41:51"}
+{"level":"info","message":"User _rbYLMjQP1ZuutAkAAAD removed","service":"omegle-backend","timestamp":"2025-11-12 02:41:51"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 19:14:01"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 19:14:01"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 19:14:11"}
+{"level":"info","message":"User verified for soham@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 19:14:11"}
+{"level":"info","message":"User connected: mmpB87QOGImSl7GvAAAB","service":"omegle-backend","timestamp":"2025-11-12 19:14:12"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 19:18:38"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 19:18:38"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 19:19:08"}
+{"level":"info","message":"User verified for sohamc@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 19:19:08"}
+{"level":"info","message":"User connected: ujFQVkSQIoCAGf59AAAB","service":"omegle-backend","timestamp":"2025-11-12 19:19:09"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 19:19:12"}
+{"level":"info","message":"User verified for sohamc@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 19:19:12"}
+{"level":"info","message":"User connected: 2JI5g5AnrCQSdnF7AAAD","service":"omegle-backend","timestamp":"2025-11-12 19:19:13"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 19:43:44"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 19:43:44"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 19:44:27"}
+{"level":"info","message":"User verified for soham@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 19:44:27"}
+{"level":"info","message":"User connected: 9ndwG3gnIVcAzDtRAAAB","service":"omegle-backend","timestamp":"2025-11-12 19:44:29"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 19:44:36"}
+{"level":"info","message":"User verified for sohamC@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 19:44:36"}
+{"level":"info","message":"User connected: NDNrv2fkRrZPpkCMAAAD","service":"omegle-backend","timestamp":"2025-11-12 19:44:37"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 19:55:57"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 19:55:57"}
+{"level":"info","message":"User connected: cZYm-sECHBic7gO_AAAB","service":"omegle-backend","timestamp":"2025-11-12 19:55:58"}
+{"level":"info","message":"User connected: wFOYjQaxUU0kXZ1FAAAD","service":"omegle-backend","timestamp":"2025-11-12 19:55:58"}
+{"level":"info","message":"User disconnected: wFOYjQaxUU0kXZ1FAAAD","service":"omegle-backend","timestamp":"2025-11-12 19:56:12"}
+{"level":"info","message":"User wFOYjQaxUU0kXZ1FAAAD removed","service":"omegle-backend","timestamp":"2025-11-12 19:56:12"}
+{"level":"warn","message":"Database not connected, using in-memory user","service":"omegle-backend","timestamp":"2025-11-12 19:56:24"}
+{"level":"info","message":"User verified for sohamc@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 19:56:24"}
+{"level":"info","message":"User connected: -7gjvW_bf7-1fcAMAAAF","service":"omegle-backend","timestamp":"2025-11-12 19:56:25"}
+{"level":"info","message":"User disconnected: cZYm-sECHBic7gO_AAAB","service":"omegle-backend","timestamp":"2025-11-12 19:56:26"}
+{"level":"info","message":"User cZYm-sECHBic7gO_AAAB removed","service":"omegle-backend","timestamp":"2025-11-12 19:56:26"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 20:04:31"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 20:04:31"}
+{"level":"warn","message":"⚠️  MongoDB disconnected","service":"omegle-backend","timestamp":"2025-11-12 20:04:31"}
+{"code":8000,"codeName":"AtlasError","connectionGeneration":0,"errorLabelSet":{},"errorResponse":{"code":8000,"codeName":"AtlasError","errmsg":"bad auth : authentication failed","ok":0},"level":"error","message":"❌ MongoDB connection error: bad auth : authentication failed","ok":0,"service":"omegle-backend","stack":"MongoServerError: bad auth : authentication failed\n    at Connection.sendCommand (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connection.js:306:27)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Connection.command (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connection.js:334:26)\n    at async continueScramConversation (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:131:15)\n    at async executeScram (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:80:5)\n    at async ScramSHA1.auth (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:39:16)\n    at async performInitialHandshake (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connect.js:104:13)\n    at async connect (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connect.js:24:9)","timestamp":"2025-11-12 20:04:31"}
+{"level":"warn","message":"⚠️  Continuing without database (development mode)","service":"omegle-backend","timestamp":"2025-11-12 20:04:31"}
+{"code":8000,"codeName":"AtlasError","connectionGeneration":0,"errorLabelSet":{},"errorResponse":{"code":8000,"codeName":"AtlasError","errmsg":"bad auth : authentication failed","ok":0},"level":"error","message":"❌ MongoDB error: bad auth : authentication failed","ok":0,"service":"omegle-backend","stack":"MongoServerError: bad auth : authentication failed\n    at Connection.sendCommand (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connection.js:306:27)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Connection.command (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connection.js:334:26)\n    at async continueScramConversation (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:131:15)\n    at async executeScram (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:80:5)\n    at async ScramSHA1.auth (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:39:16)\n    at async performInitialHandshake (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connect.js:104:13)\n    at async connect (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connect.js:24:9)","timestamp":"2025-11-12 20:04:31"}
+{"level":"info","message":"User connected: 7Vx25qckpfCqWddkAAAB","service":"omegle-backend","timestamp":"2025-11-12 20:04:34"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:07:05"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:07:05"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:07:07"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:07:07"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:07:11"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:07:11"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 20:07:23"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 20:07:23"}
+{"level":"warn","message":"⚠️  MongoDB disconnected","service":"omegle-backend","timestamp":"2025-11-12 20:07:26"}
+{"code":8000,"codeName":"AtlasError","connectionGeneration":0,"errorLabelSet":{},"errorResponse":{"code":8000,"codeName":"AtlasError","errmsg":"bad auth : authentication failed","ok":0},"level":"error","message":"❌ MongoDB connection error: bad auth : authentication failed","ok":0,"service":"omegle-backend","stack":"MongoServerError: bad auth : authentication failed\n    at Connection.sendCommand (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connection.js:306:27)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Connection.command (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connection.js:334:26)\n    at async continueScramConversation (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:131:15)\n    at async executeScram (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:80:5)\n    at async ScramSHA1.auth (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:39:16)\n    at async performInitialHandshake (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connect.js:104:13)\n    at async connect (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connect.js:24:9)","timestamp":"2025-11-12 20:07:26"}
+{"level":"warn","message":"⚠️  Continuing without database (development mode)","service":"omegle-backend","timestamp":"2025-11-12 20:07:26"}
+{"code":8000,"codeName":"AtlasError","connectionGeneration":0,"errorLabelSet":{},"errorResponse":{"code":8000,"codeName":"AtlasError","errmsg":"bad auth : authentication failed","ok":0},"level":"error","message":"❌ MongoDB error: bad auth : authentication failed","ok":0,"service":"omegle-backend","stack":"MongoServerError: bad auth : authentication failed\n    at Connection.sendCommand (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connection.js:306:27)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Connection.command (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connection.js:334:26)\n    at async continueScramConversation (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:131:15)\n    at async executeScram (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:80:5)\n    at async ScramSHA1.auth (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/auth/scram.js:39:16)\n    at async performInitialHandshake (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connect.js:104:13)\n    at async connect (/Users/sohamsaranga/Desktop/omegle-master 3/backend/node_modules/mongodb/lib/cmap/connect.js:24:9)","timestamp":"2025-11-12 20:07:26"}
+{"level":"info","message":"User connected: epv1ZF15ikxDMD5wAAAB","service":"omegle-backend","timestamp":"2025-11-12 20:07:26"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:28"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:28"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:29"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:29"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:29"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:29"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:29"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:29"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:29"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:29"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:30"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:30"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:30"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:30"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:31"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:31"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:31"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:31"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:31"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2025-11-12 20:08:31"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2025-11-12 20:08:42"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2025-11-12 20:08:42"}
+{"level":"info","message":"User connected: VJYU6WABL5i1tOR5AAAB","service":"omegle-backend","timestamp":"2025-11-12 20:08:45"}
+{"level":"info","message":"✅ Connected to MongoDB","service":"omegle-backend","timestamp":"2025-11-12 20:08:46"}
+{"level":"info","message":"User disconnected: VJYU6WABL5i1tOR5AAAB","service":"omegle-backend","timestamp":"2025-11-12 20:08:53"}
+{"level":"info","message":"User VJYU6WABL5i1tOR5AAAB removed","service":"omegle-backend","timestamp":"2025-11-12 20:08:53"}
+{"level":"info","message":"User verified for soham@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 20:09:03"}
+{"level":"info","message":"User connected: D_ajkB9vjdCFTz3rAAAD","service":"omegle-backend","timestamp":"2025-11-12 20:09:04"}
+{"level":"info","message":"User User (soham@adypu.edu.in) (D_ajkB9vjdCFTz3rAAAD) joined","service":"omegle-backend","timestamp":"2025-11-12 20:09:04"}
+{"level":"info","message":"User verified for sohamc@adypu.edu.in (college email domain validated)","service":"omegle-backend","timestamp":"2025-11-12 20:09:23"}
+{"level":"info","message":"User connected: 8Z_wcsDl70_DSNEYAAAF","service":"omegle-backend","timestamp":"2025-11-12 20:09:23"}
+{"level":"error","message":"Error saving user to database: MongoServerError: Plan executor error during findAndModify :: caused by :: E11000 duplicate key error collection: omegle-clone.users index: email_1 dup key: { email: null }","service":"omegle-backend","timestamp":"2025-11-12 20:09:23"}
+{"level":"info","message":"Matching users: User and User","service":"omegle-backend","timestamp":"2025-11-12 20:09:23"}
+{"level":"info","message":"User User (sohamc@adypu.edu.in) (8Z_wcsDl70_DSNEYAAAF) joined","service":"omegle-backend","timestamp":"2025-11-12 20:09:23"}
+{"level":"info","message":"Room 1 created between User and User","service":"omegle-backend","timestamp":"2025-11-12 20:09:24"}
+{"level":"info","message":"User disconnected: D_ajkB9vjdCFTz3rAAAD","service":"omegle-backend","timestamp":"2025-11-12 20:10:34"}
+{"level":"info","message":"Room 1 deleted","service":"omegle-backend","timestamp":"2025-11-12 20:10:34"}
+{"level":"info","message":"User D_ajkB9vjdCFTz3rAAAD removed","service":"omegle-backend","timestamp":"2025-11-12 20:10:34"}
+{"level":"info","message":"User disconnected: 8Z_wcsDl70_DSNEYAAAF","service":"omegle-backend","timestamp":"2025-11-12 20:14:19"}
+{"level":"info","message":"User 8Z_wcsDl70_DSNEYAAAF removed","service":"omegle-backend","timestamp":"2025-11-12 20:14:19"}

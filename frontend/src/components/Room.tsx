@@ -9,10 +9,12 @@ const URL = `http://${BACKEND_HOST}:3000`;
 
 export const Room = ({
     name,
+    email,
     localAudioTrack,
     localVideoTrack
 }: {
     name: string,
+    email: string,
     localAudioTrack: MediaStreamTrack | null,
     localVideoTrack: MediaStreamTrack | null,
 }) => {
@@ -24,14 +26,29 @@ export const Room = ({
     const [remoteVideoTrack, setRemoteVideoTrack] = useState<MediaStreamTrack | null>(null);
     const [remoteAudioTrack, setRemoteAudioTrack] = useState<MediaStreamTrack | null>(null);
     const [remoteMediaStream, setRemoteMediaStream] = useState<MediaStream | null>(null);
+    const [currentRoomId, setCurrentRoomId] = useState<string | null>(null);
     const remoteVideoRef = useRef<HTMLVideoElement>();
     const localVideoRef = useRef<HTMLVideoElement>();
 
     useEffect(() => {
         const socket = io(URL);
+        
+        // Send join event with email and name
+        socket.emit('join', { email, name, interests: [] });
+        
+        socket.on('error', ({ message }: { message: string }) => {
+            alert(message);
+        });
+        
+        socket.on('user-disconnected', () => {
+            setLobby(true);
+            alert('The other user disconnected. Searching for a new match...');
+        });
+        
         socket.on('send-offer', async ({roomId}) => {
             console.log("sending offer");
             setLobby(false);
+            setCurrentRoomId(roomId);
             const pc = new RTCPeerConnection();
 
             setSendingPc(pc);
@@ -72,6 +89,7 @@ export const Room = ({
         socket.on("offer", async ({roomId, sdp: remoteSdp}) => {
             console.log("received offer");
             setLobby(false);
+            setCurrentRoomId(roomId);
             const pc = new RTCPeerConnection();
             pc.setRemoteDescription(remoteSdp)
             const sdp = await pc.createAnswer();
@@ -202,11 +220,89 @@ export const Room = ({
         }
     }, [localVideoRef])
 
-    return <div>
-        Hi {name}
-        <video autoPlay width={400} height={400} ref={localVideoRef} />
-        {lobby ? "Waiting to connect you to someone" : null}
-        <video autoPlay width={400} height={400} ref={remoteVideoRef} />
+    const handleDisconnect = () => {
+        if (socket && currentRoomId) {
+            socket.emit('disconnect-room');
+            setLobby(true);
+            setCurrentRoomId(null);
+            // Clean up peer connections
+            if (sendingPc) {
+                sendingPc.close();
+                setSendingPc(null);
+            }
+            if (receivingPc) {
+                receivingPc.close();
+                setReceivingPc(null);
+            }
+        }
+    };
+
+    const handleReport = () => {
+        if (socket && currentRoomId) {
+            if (confirm('Are you sure you want to report this user?')) {
+                socket.emit('report-user', { roomId: currentRoomId });
+                handleDisconnect();
+            }
+        }
+    };
+
+    return <div style={{ padding: '20px', textAlign: 'center' }}>
+        <h2>Hi {name}!</h2>
+        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div>
+                <h3>You</h3>
+                <video 
+                    autoPlay 
+                    width={400} 
+                    height={300} 
+                    ref={localVideoRef}
+                    style={{ border: '2px solid #333', borderRadius: '8px' }}
+                    muted
+                />
+            </div>
+            <div>
+                <h3>{lobby ? 'Waiting for match...' : 'Connected'}</h3>
+                <video 
+                    autoPlay 
+                    width={400} 
+                    height={300} 
+                    ref={remoteVideoRef}
+                    style={{ border: '2px solid #333', borderRadius: '8px', backgroundColor: '#000' }}
+                />
+            </div>
+        </div>
+        {!lobby && (
+            <div style={{ marginTop: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                <button 
+                    onClick={handleDisconnect}
+                    style={{ 
+                        padding: '10px 20px', 
+                        fontSize: '16px', 
+                        backgroundColor: '#ff4444', 
+                        color: 'white', 
+                        border: 'none', 
+                        borderRadius: '5px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    Disconnect
+                </button>
+                <button 
+                    onClick={handleReport}
+                    style={{ 
+                        padding: '10px 20px', 
+                        fontSize: '16px', 
+                        backgroundColor: '#ff8800', 
+                        color: 'white', 
+                        border: 'none', 
+                        borderRadius: '5px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    Report
+                </button>
+            </div>
+        )}
     </div>
 }
 

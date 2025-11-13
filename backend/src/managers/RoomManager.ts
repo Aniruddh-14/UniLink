@@ -1,24 +1,43 @@
- import { User } from "./UserManger";
+import { User } from "./UserManger";
+import { Room, IRoom } from "../models/Room";
+import { logger } from "../config/logger";
 
 let GLOBAL_ROOM_ID = 1;
 
-interface Room {
+interface RoomData {
     user1: User,
     user2: User,
+    createdAt: Date;
 }
 
 export class RoomManager {
-    private rooms: Map<string, Room>
+    private rooms: Map<string, RoomData>
     constructor() {
-        this.rooms = new Map<string, Room>()
+        this.rooms = new Map<string, RoomData>()
     }
 
-    createRoom(user1: User, user2: User) {
+    async createRoom(user1: User, user2: User) {
         const roomId = this.generate().toString();
-        this.rooms.set(roomId.toString(), {
+        const roomData: RoomData = {
             user1, 
             user2,
-        })
+            createdAt: new Date()
+        };
+        this.rooms.set(roomId.toString(), roomData);
+
+        // Save to database
+        try {
+            await Room.create({
+                roomId,
+                user1SocketId: user1.socket.id,
+                user2SocketId: user2.socket.id,
+                user1Name: user1.name,
+                user2Name: user2.name,
+            });
+            logger.info(`Room ${roomId} created between ${user1.name} and ${user2.name}`);
+        } catch (error) {
+            logger.error(`Error saving room to database: ${error}`);
+        }
 
         user1.socket.emit("send-offer", {
             roomId
@@ -29,38 +48,98 @@ export class RoomManager {
         })
     }
 
-    onOffer(roomId: string, sdp: string, senderSocketid: string) {
+    async deleteRoom(roomId: string) {
         const room = this.rooms.get(roomId);
         if (!room) {
             return;
         }
+
+        // Update database
+        try {
+            const roomDoc = await Room.findOne({ roomId });
+            if (roomDoc) {
+                roomDoc.endedAt = new Date();
+                roomDoc.duration = Date.now() - roomDoc.createdAt.getTime();
+                await roomDoc.save();
+            }
+        } catch (error) {
+            logger.error(`Error updating room in database: ${error}`);
+        }
+
+        this.rooms.delete(roomId);
+        logger.info(`Room ${roomId} deleted`);
+    }
+
+    getRoomBySocketId(socketId: string): string | null {
+        for (const [roomId, room] of this.rooms.entries()) {
+            if (room.user1.socket.id === socketId || room.user2.socket.id === socketId) {
+                return roomId;
+            }
+        }
+        return null;
+    }
+
+    async reportRoom(roomId: string, reporterSocketId: string) {
+        const room = this.rooms.get(roomId);
+        if (!room) {
+            return false;
+        }
+
+        try {
+            const roomDoc = await Room.findOne({ roomId });
+            if (roomDoc && !roomDoc.reportedBy?.includes(reporterSocketId)) {
+                roomDoc.reportedBy = roomDoc.reportedBy || [];
+                roomDoc.reportedBy.push(reporterSocketId);
+                await roomDoc.save();
+                logger.warn(`Room ${roomId} reported by ${reporterSocketId}`);
+                return true;
+            }
+        } catch (error) {
+            logger.error(`Error reporting room: ${error}`);
+        }
+        return false;
+    }
+
+    onOffer(roomId: string, sdp: string, senderSocketid: string) {
+        const room = this.rooms.get(roomId);
+        if (!room) {
+            logger.warn(`Room ${roomId} not found for offer`);
+            return;
+        }
         const receivingUser = room.user1.socket.id === senderSocketid ? room.user2: room.user1;
-        receivingUser?.socket.emit("offer", {
-            sdp,
-            roomId
-        })
+        if (receivingUser && receivingUser.socket.connected) {
+            receivingUser.socket.emit("offer", {
+                sdp,
+                roomId
+            });
+        }
     }
     
     onAnswer(roomId: string, sdp: string, senderSocketid: string) {
         const room = this.rooms.get(roomId);
         if (!room) {
+            logger.warn(`Room ${roomId} not found for answer`);
             return;
         }
         const receivingUser = room.user1.socket.id === senderSocketid ? room.user2: room.user1;
-
-        receivingUser?.socket.emit("answer", {
-            sdp,
-            roomId
-        });
+        if (receivingUser && receivingUser.socket.connected) {
+            receivingUser.socket.emit("answer", {
+                sdp,
+                roomId
+            });
+        }
     }
 
     onIceCandidates(roomId: string, senderSocketid: string, candidate: any, type: "sender" | "receiver") {
         const room = this.rooms.get(roomId);
         if (!room) {
+            logger.warn(`Room ${roomId} not found for ICE candidate`);
             return;
         }
         const receivingUser = room.user1.socket.id === senderSocketid ? room.user2: room.user1;
-        receivingUser.socket.emit("add-ice-candidate", ({candidate, type}));
+        if (receivingUser && receivingUser.socket.connected) {
+            receivingUser.socket.emit("add-ice-candidate", ({candidate, type}));
+        }
     }
 
     generate() {
