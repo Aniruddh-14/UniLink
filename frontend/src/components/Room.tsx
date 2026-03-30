@@ -3,8 +3,9 @@ import { Socket, io } from "socket.io-client";
 
 // Use backend URL from env if provided, otherwise use the current page host.
 // This allows opening the app from another device on the same network without code changes.
-const BACKEND_HOST = (import.meta as any).env?.VITE_BACKEND_URL || window.location.hostname;
-const URL = import.meta.env.PROD ? "" : (BACKEND_HOST.startsWith('http') ? BACKEND_HOST : `http://${BACKEND_HOST}:3000`);
+const envUrl = (import.meta as any).env?.VITE_BACKEND_URL;
+const BACKEND_HOST = envUrl || window.location.hostname;
+const URL = envUrl ? envUrl : (import.meta.env.PROD ? "" : `http://${BACKEND_HOST}:3000`);
 
 type ChatMessage = {
     id: string;

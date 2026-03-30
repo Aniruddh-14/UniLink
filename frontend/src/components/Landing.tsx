@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { Room } from "./Room";
 
-const BACKEND_URL = import.meta.env.PROD ? "" : ((import.meta as any).env?.VITE_BACKEND_URL || `http://${window.location.hostname}:3000`);
+const envUrl = (import.meta as any).env?.VITE_BACKEND_URL;
+const BACKEND_URL = envUrl || (import.meta.env.PROD ? "" : `http://${window.location.hostname}:3000`);
 
 export const Landing = () => {
     const [email, setEmail] = useState("test@mit.edu");
@@ -15,9 +16,9 @@ export const Landing = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
-useEffect(() => {
-    document.body.className = theme === 'dark' ? 'dark-mode' : '';
-}, [theme]);
+    useEffect(() => {
+        document.body.className = theme === 'dark' ? 'dark-mode' : '';
+    }, [theme]);
     const [joined, setJoined] = useState(false);
 
     const getCam = async () => {
@@ -102,7 +103,7 @@ useEffect(() => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     email: email.trim(),
                     name: name.trim() || 'User'
                 }),
@@ -133,7 +134,7 @@ useEffect(() => {
                 message: error.message,
                 stack: error.stack
             });
-            
+
             if (error.name === 'AbortError') {
                 setError('Request timed out. Please check your connection and try again.');
             } else {
@@ -179,7 +180,7 @@ useEffect(() => {
 
                 <main className="hero-grid">
                     <div className="hero-text-content">
-                        <h1>Instant connections,<br/>campus wide.</h1>
+                        <h1>Instant connections,<br />campus wide.</h1>
                         <p>
                             Jump into spontaneous video conversations with learners across the ecosystem.
                             Every profile is email-verified for a trusted, campus-only vibe.
@@ -294,10 +295,10 @@ useEffect(() => {
     }
 
     return (
-        <Room 
-            name={name} 
-            email={verifiedEmail || ''} 
-            localAudioTrack={localAudioTrack} 
+        <Room
+            name={name}
+            email={verifiedEmail || ''}
+            localAudioTrack={localAudioTrack}
             localVideoTrack={localVideoTrack}
             onLeave={handleLeaveRoom}
         />
