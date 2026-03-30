@@ -4,7 +4,7 @@ import { Room } from "./Room";
 const BACKEND_URL = (import.meta as any).env?.VITE_BACKEND_URL || `http://${window.location.hostname}:3000`;
 
 export const Landing = () => {
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState("test@mit.edu");
     const [name, setName] = useState("");
     const [step, setStep] = useState<'email' | 'name'>('email');
     const [loading, setLoading] = useState(false);
@@ -161,186 +161,134 @@ useEffect(() => {
 
     if (!joined) {
         return (
-            <div className="landing-screen">
-                <div className="background-glow" />
-                <header className="landing-nav">
-                    <div className="brand">
-                        <div className="logo-mark">NST</div>
-                        <div>
-                            <p className="brand-label">Newton School of Technology</p>
-                            <span className="brand-sub">Campus Connect</span>
+            <div className="landing-container">
+                <div className="ambient-orb orb-1"></div>
+                <div className="ambient-orb orb-2"></div>
+
+                <nav className="nav-header glass-panel">
+                    <div className="brand-logo">
+                        <div className="brand-icon">UL</div>
+                        <div className="brand-text-container">
+                            <span className="brand-title">UniLink</span>
                         </div>
                     </div>
-                    <nav className="nav-links">
-                        <a href="#community">Community</a>
-                        <a href="#events">Events</a>
-                        <a href="#safety">Safety</a>
-                    </nav>
-                    <button className="btn primary nav-cta">
-                        Launch App
-                    </button>
-                </header>
+                    <div className="nav-actions">
+                        {/* the theme toggle icon has been removed per user request */}
+                    </div>
+                </nav>
 
-                <section className="landing-hero">
-                    <div className="hero-content">
-                        <p className="tagline">Newton network</p>
-                        <h1>Meet blue-badged students in seconds.</h1>
-                        <p className="subhead">
-                            Jump into spontaneous video conversations with learners across the Newton School ecosystem.
+                <main className="hero-grid">
+                    <div className="hero-text-content">
+                        <h1>Instant connections,<br/>campus wide.</h1>
+                        <p>
+                            Jump into spontaneous video conversations with learners across the ecosystem.
                             Every profile is email-verified for a trusted, campus-only vibe.
                         </p>
-
-                        <div className="hero-stats">
-                            <div className="stat-pill">
-                                <span className="stat-value">1200+</span>
-                                <span className="stat-label">Active peers</span>
+                        <div className="stats-row">
+                            <div className="stat-box">
+                                <span className="stat-number">24/7</span>
+                                <span className="stat-label">Active Matches</span>
                             </div>
-                            <div className="stat-pill">
-                                <span className="stat-value">24/7</span>
-                                <span className="stat-label">Matching</span>
-                            </div>
-                            <div className="stat-pill">
-                                <span className="stat-value"><span role="img" aria-label="shield">🛡️</span> Safe</span>
-                                <span className="stat-label">Real identities</span>
-                            </div>
-                        </div>
-
-                        <div className="hero-benefits">
-                            <div className="benefit">
-                                <span className="benefit-icon">✨</span>
-                                <div>
-                                    <p className="benefit-title">Smart matchmaking</p>
-                                    <p className="benefit-copy">Optimized for relevant interests & timezones.</p>
-                                </div>
-                            </div>
-                            <div className="benefit">
-                                <span className="benefit-icon">🔐</span>
-                                <div>
-                                    <p className="benefit-title">Secure & moderated</p>
-                                    <p className="benefit-copy">Newton community guidelines built-in.</p>
-                                </div>
+                            <div className="stat-box">
+                                <span className="stat-number">100%</span>
+                                <span className="stat-label">Verified</span>
                             </div>
                         </div>
                     </div>
 
-                    <div className="hero-panel">
-                        <div className="panel-card preview-panel">
-                            <span className="preview-label">Live preview</span>
-                            <div className="preview-video">
-                                <video
-                                    autoPlay
-                                    ref={videoRef}
-                                    className="video-frame mirror"
-                                    muted
-                                ></video>
+                    <div className="hero-interaction-panel">
+                        <div className="video-preview-wrapper glass-panel">
+                            <div className="preview-badge">
+                                <div className="pulse-dot"></div> Live Preview
                             </div>
+                            <video
+                                autoPlay
+                                ref={videoRef}
+                                muted
+                            ></video>
                         </div>
 
-                        <div className="panel-card form-wrapper">
+                        <div className="form-glass-card glass-panel">
                             {error && (
-                                <div className="alert">
+                                <div className="alert-error">
                                     {error}
                                 </div>
                             )}
 
                             {step === 'email' && (
-                                <div className="form-section">
-                                    <label className="field-label">
-                                        Enter your Newton email
-                                    </label>
-                                    <input
-                                        type="email"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        placeholder="you@newtonschool.edu"
-                                        className="input-field"
-                                        onKeyPress={(e) => {
-                                            if (e.key === 'Enter' && email.trim()) {
-                                                verifyEmail();
-                                            }
-                                        }}
-                                    />
-                                    <p className="helper-text">
-                                        Only verified Newton domains are accepted. For testing, use test@test.test
-                                    </p>
+                                <>
+                                    <div className="input-group">
+                                        <label>College Email</label>
+                                        <input
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="you@college.edu"
+                                            className="glass-input"
+                                            onKeyPress={(e) => {
+                                                if (e.key === 'Enter' && email.trim()) {
+                                                    verifyEmail();
+                                                }
+                                            }}
+                                        />
+                                        <span className="helper-text">Only verified college domains are accepted.</span>
+                                    </div>
                                     <button
                                         onClick={verifyEmail}
                                         disabled={!email.trim() || loading}
-                                        className="btn primary"
+                                        className="btn-glow"
                                     >
-                                        {loading ? 'Verifying…' : 'Continue'}
+                                        {loading ? 'Verifying...' : 'Continue'}
                                     </button>
-                                </div>
+                                </>
                             )}
 
                             {step === 'name' && (
-                                <div className="form-section">
-                                    <p className="verified-pill">
-                                        ✓ Email verified: {verifiedEmail}
-                                    </p>
-                                    <label className="field-label">
-                                        Enter your name
-                                    </label>
-                                    <input
-                                        type="text"
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)}
-                                        placeholder="Your name"
-                                        className="input-field"
-                                        onKeyPress={(e) => {
-                                            if (e.key === 'Enter' && name.trim()) {
-                                                handleStartChatting();
-                                            }
-                                        }}
-                                    />
-                                    <div className="actions-row">
+                                <>
+                                    <div className="badge-success">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                        Verified: {verifiedEmail}
+                                    </div>
+                                    <div className="input-group">
+                                        <label>How should people call you?</label>
+                                        <input
+                                            type="text"
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                            placeholder="Your Name"
+                                            className="glass-input"
+                                            onKeyPress={(e) => {
+                                                if (e.key === 'Enter' && name.trim()) {
+                                                    handleStartChatting();
+                                                }
+                                            }}
+                                        />
+                                    </div>
+                                    <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
                                         <button
                                             onClick={() => {
                                                 setStep('email');
                                                 setError('');
                                             }}
-                                            className="btn secondary"
+                                            className="btn-ghost"
+                                            style={{ flex: 1 }}
                                         >
                                             Back
                                         </button>
                                         <button
                                             onClick={handleStartChatting}
                                             disabled={!name.trim()}
-                                            className="btn primary"
+                                            className="btn-glow"
+                                            style={{ flex: 2 }}
                                         >
-                                            Start Chatting
+                                            Enter Lobby
                                         </button>
                                     </div>
-                                </div>
+                                </>
                             )}
                         </div>
                     </div>
-                </section>
-                <button 
-    className="theme-toggle"
-    onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-    title="Switch Theme"
->
-    {theme === 'light' ? (
-        // When Light: Show Moon (to switch to dark)
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-    ) : (
-        // When Dark: Show Sun (to switch to light)
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-    )}
-</button>
+                </main>
             </div>
         )
     }
