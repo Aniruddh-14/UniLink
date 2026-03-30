@@ -308,103 +308,106 @@ export const Room = ({
         setChatInput('');
     };
 
-    const roomStateClasses = lobby ? '' : 'room-connected';
-
     return (
-        <div className={`room-container ${roomStateClasses}`}>
-            <div className="background-glow" />
-            <div className={`room-shell ${roomStateClasses}`}>
-                <div className="room-header">
-                    <div>
-                        <p className="tagline">Signed in as {name}</p>
-                        <h2>NST Network</h2>
-                    </div>
-                    <span className={`status-pill ${lobby ? 'waiting' : 'connected'}`}>
-                        {'Points: 128 [to be added]'}
+        <div className="room-container">
+            <div className="ambient-orb orb-1"></div>
+            <div className="ambient-orb orb-2"></div>
+            
+            <header className="room-control-bar glass-panel" style={{ margin: '1rem', borderRadius: '16px' }}>
+                <div className="brand-logo">
+                    <div className="brand-icon" style={{ width: '30px', height: '30px', fontSize: '1rem' }}>UL</div>
+                    <span className="brand-title" style={{ fontSize: '1.1rem' }}>UniLink Room</span>
+                </div>
+                <div className="control-group">
+                    <span className="overlay-pill" style={{ background: lobby ? 'rgba(139, 92, 246, 0.2)' : 'rgba(16, 185, 129, 0.2)' }}>
+                        {lobby ? 'Searching...' : 'Connected'}
                     </span>
+                    <button 
+                        onClick={handleReport}
+                        className="btn-ghost"
+                        disabled={lobby}
+                    >
+                        Report
+                    </button>
+                    <button 
+                        onClick={lobby ? handleCancelSearch : handleDisconnect}
+                        className={lobby ? 'btn-ghost' : 'btn-glow btn-danger'}
+                    >
+                        {lobby ? 'Cancel Search' : 'Skip Next'}
+                    </button>
+                </div>
+            </header>
+
+            <div className="room-layout-grid">
+                <div className="video-arena glass-panel">
+                    {!lobby && (
+                        <div className="video-overlay-info">
+                            <span className="overlay-pill">Stranger</span>
+                        </div>
+                    )}
+                    {lobby && (
+                        <div style={{ color: 'var(--text-secondary)', textAlign: 'center', zIndex: 10 }}>
+                            <div className="pulse-dot" style={{ display: 'inline-block', margin: '0 auto 1rem', width: '12px', height: '12px' }}></div>
+                            <h2>Finding a match...</h2>
+                            <p>Hang tight, we're pairing you with someone.</p>
+                        </div>
+                    )}
+                    <video 
+                        autoPlay 
+                        playsInline
+                        ref={remoteVideoRef}
+                        className="remote-video-full"
+                        style={{ display: lobby ? 'none' : 'block' }}
+                    />
+                    <div className="local-video-pip">
+                        <video
+                            autoPlay
+                            playsInline
+                            ref={localVideoRef}
+                            muted
+                        />
+                    </div>
                 </div>
 
-                <div className="room-layout">
-                    <div className="video-stack">
-                        <div className="video-card remote-card">
-                            <div className="video-meta">
-                                <h3>{lobby ? 'Searching for a match…' : 'Stranger'}</h3>
-                                <span>{lobby ? 'Hang tight, we are pairing you.' : 'You are connected'}</span>
+                <div className="chat-sidebar glass-panel">
+                    <div className="chat-messages-area">
+                        {messages.length === 0 && (
+                            <div className="chat-empty-state">
+                                {lobby ? 'Chat unlocks when you connect.' : 'Say hi! Send the first message.'}
                             </div>
-                            <video 
-                                autoPlay 
-                                playsInline
-                                ref={remoteVideoRef}
-                                className="video-frame remote-frame"
-                            />
-                        </div>
+                        )}
+                        {messages.map(message => (
+                            <div
+                                key={message.id}
+                                className={`chat-bubble ${message.sender === 'me' ? 'me' : 'peer'}`}
+                            >
+                                <div className="bubble-sender">
+                                    {message.sender === 'me' ? 'You' : message.senderName}
+                                </div>
+                                <div className="bubble-text">{message.text}</div>
+                            </div>
+                        ))}
+                        <div ref={chatBottomRef} />
                     </div>
-                    <div className="chat-column">
-                        <div className="chat-panel">
-                            <div className="chat-header">
-                                <h4>Live chat</h4>
-                                
-                            </div>
-                            <div className="chat-messages">
-                                {messages.length === 0 && (
-                                    <p className="chat-empty">Keep chatting while the video stays live.</p>
-                                )}
-                                {messages.map(message => (
-                                    <div
-                                        key={message.id}
-                                        className={`chat-message ${message.sender === 'me' ? 'self' : 'peer'}`}
-                                    >
-                                        <span className="chat-author">{message.sender === 'me' ? 'You' : message.senderName}</span>
-                                        <p>{message.text}</p>
-                                    </div>
-                                ))}
-                                <div ref={chatBottomRef} />
-                            </div>
-                            <form className="chat-input-row" onSubmit={handleSendMessage}>
-                                <input
-                                    type="text"
-                                    value={chatInput}
-                                    onChange={(e) => setChatInput(e.target.value)}
-                                    placeholder={lobby ? 'Chat unlocks once connected…' : 'Type a message'}
-                                    className="input-field"
-                                />
-                                <button
-                                    type="submit"
-                                    className="btn primary"
-                                    disabled={lobby || !chatInput.trim()}
-                                >
-                                    Send
-                                </button>
-                            </form>
-                        </div>
-                        <div className="controls chat-controls">
-                            <button 
-                                onClick={handleReport}
-                                className="btn ghost"
+                    
+                    <div className="chat-input-area">
+                        <form className="chat-form" onSubmit={handleSendMessage}>
+                            <input
+                                type="text"
+                                value={chatInput}
+                                onChange={(e) => setChatInput(e.target.value)}
+                                placeholder={lobby ? 'Waiting for peer...' : 'Type a message...'}
+                                className="glass-input"
                                 disabled={lobby}
-                            >
-                                Report
-                            </button>
-                            <button 
-                                onClick={lobby ? handleCancelSearch : handleDisconnect}
-                                className={`btn ${lobby ? 'secondary' : 'danger'}`}
-                            >
-                                {lobby ? 'Cancel Search' : 'Skip'}
-                            </button>
-                        </div>
-                        <div className="video-card self-card">
-                            <div className="video-meta">
-                                <h3>You</h3>
-                                <span>{lobby ? 'Camera preview' : 'Live now'}</span>
-                            </div>
-                            <video
-                                autoPlay
-                                playsInline
-                                ref={localVideoRef}
-                                className="video-frame self-frame mirror"
-                                muted
                             />
-                        </div>
+                            <button
+                                type="submit"
+                                className="btn-send"
+                                disabled={lobby || !chatInput.trim()}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
