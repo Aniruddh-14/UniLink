@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Room } from "./Room";
 
-const BACKEND_URL = (import.meta as any).env?.VITE_BACKEND_URL || `http://${window.location.hostname}:3000`;
+const BACKEND_URL = import.meta.env.PROD ? "" : ((import.meta as any).env?.VITE_BACKEND_URL || `http://${window.location.hostname}:3000`);
 
 export const Landing = () => {
     const [email, setEmail] = useState("test@mit.edu");

@@ -4,7 +4,7 @@ import { Socket, io } from "socket.io-client";
 // Use backend URL from env if provided, otherwise use the current page host.
 // This allows opening the app from another device on the same network without code changes.
 const BACKEND_HOST = (import.meta as any).env?.VITE_BACKEND_URL || window.location.hostname;
-const URL = BACKEND_HOST.startsWith('http') ? BACKEND_HOST : `http://${BACKEND_HOST}:3000`;
+const URL = import.meta.env.PROD ? "" : (BACKEND_HOST.startsWith('http') ? BACKEND_HOST : `http://${BACKEND_HOST}:3000`);
 
 type ChatMessage = {
     id: string;
@@ -67,14 +67,14 @@ export const Room = ({
 
     useEffect(() => {
         const socket = io(URL);
-        
+
         // Send join event with email and name
         socket.emit('join', { email, name, interests: [] });
-        
+
         socket.on('error', ({ message }: { message: string }) => {
             alert(message);
         });
-        
+
         socket.on('user-disconnected', () => {
             setLobby(true);
             alert('The other user disconnected. Searching for a new match...');
@@ -92,8 +92,8 @@ export const Room = ({
                 }
             ]));
         });
-        
-        socket.on('send-offer', async ({roomId}) => {
+
+        socket.on('send-offer', async ({ roomId }) => {
             console.log("sending offer");
             setLobby(false);
             setCurrentRoomId(roomId);
@@ -112,11 +112,11 @@ export const Room = ({
             pc.onicecandidate = async (e) => {
                 console.log("receiving ice candidate locally");
                 if (e.candidate) {
-                   socket.emit("add-ice-candidate", {
-                    candidate: e.candidate,
-                    type: "sender",
-                    roomId
-                   })
+                    socket.emit("add-ice-candidate", {
+                        candidate: e.candidate,
+                        type: "sender",
+                        roomId
+                    })
                 }
             }
 
@@ -134,7 +134,7 @@ export const Room = ({
             pc.ontrack = handleRemoteTrack;
         });
 
-        socket.on("offer", async ({roomId, sdp: remoteSdp}) => {
+        socket.on("offer", async ({ roomId, sdp: remoteSdp }) => {
             console.log("received offer");
             setLobby(false);
             setCurrentRoomId(roomId);
@@ -161,11 +161,11 @@ export const Room = ({
                 }
                 console.log("omn ice candidate on receiving seide");
                 if (e.candidate) {
-                   socket.emit("add-ice-candidate", {
-                    candidate: e.candidate,
-                    type: "receiver",
-                    roomId
-                   })
+                    socket.emit("add-ice-candidate", {
+                        candidate: e.candidate,
+                        type: "receiver",
+                        roomId
+                    })
                 }
             }
 
@@ -188,9 +188,9 @@ export const Room = ({
             setLobby(true);
         })
 
-        socket.on("add-ice-candidate", ({candidate, type}) => {
+        socket.on("add-ice-candidate", ({ candidate, type }) => {
             console.log("add ice candidate from remote");
-            console.log({candidate, type})
+            console.log({ candidate, type })
             if (type == "sender") {
                 setReceivingPc(pc => {
                     if (!pc) {
@@ -312,7 +312,7 @@ export const Room = ({
         <div className="room-container">
             <div className="ambient-orb orb-1"></div>
             <div className="ambient-orb orb-2"></div>
-            
+
             <header className="room-control-bar glass-panel" style={{ margin: '1rem', borderRadius: '16px' }}>
                 <div className="brand-logo">
                     <div className="brand-icon" style={{ width: '30px', height: '30px', fontSize: '1rem' }}>UL</div>
@@ -322,14 +322,14 @@ export const Room = ({
                     <span className="overlay-pill" style={{ background: lobby ? 'rgba(139, 92, 246, 0.2)' : 'rgba(16, 185, 129, 0.2)' }}>
                         {lobby ? 'Searching...' : 'Connected'}
                     </span>
-                    <button 
+                    <button
                         onClick={handleReport}
                         className="btn-ghost"
                         disabled={lobby}
                     >
                         Report
                     </button>
-                    <button 
+                    <button
                         onClick={lobby ? handleCancelSearch : handleDisconnect}
                         className={lobby ? 'btn-ghost' : 'btn-glow btn-danger'}
                     >
@@ -352,8 +352,8 @@ export const Room = ({
                             <p>Hang tight, we're pairing you with someone.</p>
                         </div>
                     )}
-                    <video 
-                        autoPlay 
+                    <video
+                        autoPlay
                         playsInline
                         ref={remoteVideoRef}
                         className="remote-video-full"
@@ -389,7 +389,7 @@ export const Room = ({
                         ))}
                         <div ref={chatBottomRef} />
                     </div>
-                    
+
                     <div className="chat-input-area">
                         <form className="chat-form" onSubmit={handleSendMessage}>
                             <input
