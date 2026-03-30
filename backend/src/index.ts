@@ -4,6 +4,7 @@ dotenv.config();
 import { Socket } from "socket.io";
 import http from "http";
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
@@ -111,6 +112,13 @@ io.on('connection', async (socket: Socket) => {
   socket.on('error', (error) => {
     logger.error(`Socket error for ${socket.id}:`, error);
   });
+});
+
+// Serve static frontend in production
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api/')) return next();
+  res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
 
 // Initialize database connection (non-blocking)
