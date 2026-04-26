@@ -44,13 +44,13 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 // Health check endpoint
-// app.get('/', (req, res) => {
-//   res.json({ 
-//     message: 'Omegle clone backend server is running',
-//     status: 'healthy',
-//     timestamp: new Date().toISOString()
-//   });
-// });
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    message: 'Backend server is running',
+    status: 'healthy',
+    timestamp: new Date().toISOString()
+  });
+});
 
 // WebRTC configuration endpoint
 app.get('/api/rtc-config', (req, res) => {
@@ -134,6 +134,24 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   logger.info(`🚀 Server listening on port ${PORT}`);
   logger.info(`📝 Environment: ${process.env.NODE_ENV || 'development'}`);
+
+  // Keep-alive mechanism to prevent Render's free tier from sleeping (15 min limit)
+  if (process.env.NODE_ENV === 'production') {
+    const PING_INTERVAL = 14 * 60 * 1000; // 14 minutes
+    // RENDER_EXTERNAL_URL is automatically provided by Render
+    const url = process.env.RENDER_EXTERNAL_URL ? `${process.env.RENDER_EXTERNAL_URL}/api/health` : `http://localhost:${PORT}/api/health`;
+    
+    setInterval(() => {
+      logger.info(`[Keep-Alive] Pinging ${url} to prevent sleep...`);
+      fetch(url)
+        .then(res => {
+          if (!res.ok) logger.warn(`[Keep-Alive] Ping returned status: ${res.status}`);
+        })
+        .catch(err => {
+          logger.error(`[Keep-Alive] Ping failed: ${err.message}`);
+        });
+    }, PING_INTERVAL);
+  }
 });
 
 // Graceful shutdown

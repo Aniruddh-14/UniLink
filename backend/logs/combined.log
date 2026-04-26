@@ -724,3 +724,15 @@
 {"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2026-03-31 00:05:22"}
 {"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2026-03-31 00:05:22"}
 {"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2026-03-31 00:05:22"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2026-03-31 00:20:26"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2026-03-31 00:20:26"}
+{"level":"info","message":"✅ Connected to MongoDB","service":"omegle-backend","timestamp":"2026-03-31 00:20:27"}
+{"level":"info","message":"User verified for test@mit.edu (college email domain validated)","service":"omegle-backend","timestamp":"2026-03-31 00:20:48"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2026-03-31 00:34:47"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2026-03-31 00:34:49"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2026-03-31 00:34:49"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2026-03-31 00:34:50"}
+{"level":"info","message":"🚀 Server listening on port 3000","service":"omegle-backend","timestamp":"2026-03-31 00:34:58"}
+{"level":"info","message":"📝 Environment: development","service":"omegle-backend","timestamp":"2026-03-31 00:34:58"}
+{"level":"info","message":"✅ Connected to MongoDB","service":"omegle-backend","timestamp":"2026-03-31 00:34:58"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"omegle-backend","timestamp":"2026-03-31 00:35:20"}
